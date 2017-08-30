@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void busq_max(int v[], int sizev, int posic, int max){
+void busq_max(int v[], int sizev, int* posic, int* max){
 	posic = 0;
 	max = v[0];
 	for(int i = 0; i = sizev; i++){
@@ -26,7 +26,11 @@ int main(int argc, char *argv[]) {
 	int tamaño;
 	tamaño = a.size();
 	
-	busq_max(a[], tamaño)
+	int lugar;
+	int mayor;
+	busq_max(a, tamaño, lugar, mayor);
+	
+	cout << lugar << mayor;
 	
 	return 0;
 }
