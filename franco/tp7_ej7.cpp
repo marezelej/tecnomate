@@ -3,18 +3,15 @@
 using namespace std;
 
 
-int busq_max(int v[], int sizev){
-	int posic;
+void busq_max(int v[], int sizev, int posic, int max){
 	posic = 0;
-	int max;
 	max = v[0];
 	for(int i = 0; i = sizev; i++){
 		if(v[i] > max){
 			posic = i;
-			maximo = v[i];
+			max = v[i];
 		}
 	}
-	return posic;
 }
 
 int main(int argc, char *argv[]) {
