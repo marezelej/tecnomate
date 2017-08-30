@@ -4,33 +4,31 @@ using namespace std;
 
 
 void busq_max(int v[], int sizev, int* posic, int* max){
-	posic = 0;
-	max = v[0];
-	for(int i = 0; i = sizev; i++){
-		if(v[i] > max){
-			posic = i;
-			max = v[i];
+	*posic = 0;
+	*max = v[0];
+	for(int i = 0; i < sizev; i++){
+		if(v[i] > *max){
+			*posic = i;
+			*max = v[i];
 		}
 	}
 }
 
 int main(int argc, char *argv[]) {
-	int j;
-	cin j;
-	array <int, j> a;
+	int a[10];
 	
-	for (i = 0; i < j+1; i++){
+	for (int i = 0; i < 10; i++){
 		cin >> a[i];
 	}
 	
-	int tama√±o;
-	tama√±o = a.size();
+	int tam;
+	tam = 10;
 	
 	int lugar;
 	int mayor;
-	busq_max(a, tama√±o, lugar, mayor);
+	busq_max(a, sizeof(a)/sizeof(*a), &lugar, &mayor);
 	
-	cout << lugar << mayor;
+	cout <<"El m·ximo es "<< mayor <<" de posiciÛn " << lugar;
 	
 	return 0;
 }
