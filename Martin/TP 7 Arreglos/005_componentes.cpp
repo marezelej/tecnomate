@@ -31,5 +31,5 @@ int main(){
 	
 	if(cero){
 		cout<<"El vector tiene algún cero";
-	}
+	} //hola
 }
