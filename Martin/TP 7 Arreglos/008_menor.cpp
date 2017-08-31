@@ -2,18 +2,18 @@
 #include <iostream>
 using namespace std;
 
-void bus_min(int v[], int size, int* count, int* min){
+void bus_min(int v[], int size, int& count, int& min){
 
-*min = v[0];
-*count = 0;
+min = v[0];
+count = 0;
 	
 	for (int i = 1; i < size; i++){
-		if (v[i] < *min){
-			*min = v[i];
-			*count=0;
+		if (v[i] < min){
+			min = v[i];
+			count=0;
 		}
-		else if(v[i]==*min){
-			*count+=1;
+		else if(v[i]==min){
+			count+=1;
 		}
 	}
 } 
@@ -31,7 +31,7 @@ int main (int argc, char *argv[]){
 		cin>>a[i];
 }
 
-bus_min(a,n,&cant,&min);
+bus_min(a,n,cant,min);
 cout<<"Mínimo es "<<min<<" y se repitió "<<cant<<endl;
 	
 }
