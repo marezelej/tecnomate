@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-void bus_max(double vector[], int size, double& max, int& pos){
+void bus_max(const double vector[],const int &size, double& max, int& pos){
 	pos = 0;
 	max = vector[0];
 	
@@ -14,7 +14,7 @@ void bus_max(double vector[], int size, double& max, int& pos){
 	}
 }
 
-void bus_min(double vector[], int size, double& min, int& pos){
+void bus_min(const double vector[],const int &size, double& min, int& pos){
 	pos = 0;
 	min = vector[0];
 	
