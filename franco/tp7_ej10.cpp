@@ -31,7 +31,7 @@ int main(int arg, char *argv[]){
 	double total;
 	
 	for(int i = 0; i<tam; i++){
-		cout << "Ingrese las ventas en el mes: " << i << endl;
+		cout << "Ingrese las ventas en el mes: " << i+1 << endl;
 		cin >> ventas[i];
 		total += ventas[i];
 	} 
