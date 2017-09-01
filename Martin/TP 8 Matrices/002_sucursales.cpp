@@ -10,16 +10,16 @@ int main(int argc, char *argv[]) {
 	cin>>tec;
 	int suc,art;
 	while (tec!='0'){
-		cout<<"Ingrese sucursal: ";
+		cout<<"Ingrese sucursal(1-20): ";
 		cin>>suc;
-		cout<<"Ingrese N° de articulo vendido: ";
+		cout<<"Ingrese N° de articulo vendido(1-30): ";
 		cin>>art;
 		suc--;
 		art--;
 		++matriz[art][suc];
 		cout<<"ingrese 0 para salir, m para mostrar..."<<endl;
 		cin>>tec;
-		if(tec=='m'){
+		if(tec=='m'){ //cuidado con los if
 			cout<<"SUCURSAL:"<<endl;
 			for(int i=0;i<30;i++){
 				for(int j=0;j<20;j++){
