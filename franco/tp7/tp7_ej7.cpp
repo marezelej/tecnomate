@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 	int mayor;
 	busq_max(a, sizeof(a)/sizeof(*a), &lugar, &mayor);
 	
-	cout <<"El máximo es "<< mayor <<" de posición " << lugar;
+	cout <<"El mÃ¡ximo es "<< mayor <<" de posiciÃ³n " << lugar;
 	
 	return 0;
 }
