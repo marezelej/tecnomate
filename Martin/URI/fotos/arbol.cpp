@@ -56,7 +56,7 @@ void enOrden(ABB arbol)
 	}
 }
 
-int recorrer(ABB arbol,int count)
+int recorrer(ABB arbol,int &count)
 {
 	int X=0;
 	if(arbol!=NULL)
@@ -67,8 +67,9 @@ int recorrer(ABB arbol,int count)
 			++count;
 			X=arbol->max;
 		}
+		recorrer(arbol->der,count);
 	}
-	recorrer(arbol->der,count);
+	
 	return count;
 }
 int main(int argc, char *argv[]) {
@@ -86,6 +87,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	enOrden(arbol);
-	cout<<recorrer(arbol,0)<<endl;
+	int count=0;
+	cout<<recorrer(arbol,count)<<endl;
 	return 0;
 }
