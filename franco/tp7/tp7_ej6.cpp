@@ -3,7 +3,7 @@ using namespace std;
 
 int main(int argc, char *argv[]) {
 
-	char a[10]; //Son los elementos del array, no el índice
+	char a[10]; //Son los elementos del array, no el Ã­ndice
 	char b[10];
 	 
 	for(int i = 0; i<10; i++){
