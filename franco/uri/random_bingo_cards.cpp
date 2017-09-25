@@ -1,3 +1,5 @@
+// https://www.urionlinejudge.com.br/judge/en/problems/view/1771
+
 #include <iostream>
 using namespace std;
 bool rango(char x,int n)
