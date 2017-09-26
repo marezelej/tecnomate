@@ -11,21 +11,30 @@ int rango(int n)
 	else if(61<=n&&n<=75) return 4;
 } 
 
-bool perm(int m[5][5],int Fant,int Cant,int bsq)
+bool perm(int m[5][5])
 {
+	int B=0;
+	int I=0;
+	int N=0;
+	int G=0;
+	int O=0;
+	
 	for(int i=0;i<5;i++){
-		if(m[i][bsq]==Cant) 
-		{
-			//cout<<"hay "<<" i:"<<i<<" bsq:"<<bsq<<" cant:"<<Cant<<endl;
-			int aux=m[i][bsq];
-			m[i][bsq]=m[Fant][Cant];
-			m[Fant][Cant]=aux;
-			return true;
+		for(int j=0;j<5;j++){
+			if(i!=2||j!=2){
+				switch(m[i][j]){
+				case 0:B++; break;
+				case 1:I++; break;
+				case 2:N++; break;
+				case 3:G++; break;
+				case 4:O++; break;
+				}
+			}
 		}
 	}
-	
-	//cout<<"no hay"<<endl;
-	return false;
+	if(B==5&&I==5&&N==4&&G==5&&O==5)return true;
+	else
+		return false;
 }
 
 int evaluar(int m[5][5])
@@ -37,7 +46,7 @@ int evaluar(int m[5][5])
 			{
 				e=2;
 				//cout<<"i:"<<i<<" j:"<<j<<"m[j][i]:"<<m[j][i]<<endl;
-				if(perm(m,j,i,m[j][i]))
+				if(perm(m))
 				{
 					e=1; 
 				}
@@ -55,20 +64,22 @@ int main(int argc, char *argv[]) {
 			for (int j=0;j<5;j++){
 				if(i!=2||j!=2){
 					cin>>n;
-					m[i][j]=n;
+					m[i][j]=rango(n);
 				}
 			}
 		}
-		res=0;
-		if (res==0)cout<<"OK"<<endl;
-		else if (res==1)cout<<"RECICLAVEL"<<endl;
-		else cout<<"DESCARTAVEL"<<endl;
-		for (int i=0;i<5;i++){
-			for (int j=0;j<5;j++){
-				cout<< m[i][j] <<" ";
-			}
-			cout<<endl;
+		res=evaluar(m);
+		if(cin){
+			if (res==0)cout<<"OK"<<endl;
+			else if (res==1)cout<<"RECICLAVEL"<<endl;
+			else cout<<"DESCARTAVEL"<<endl;
 		}
+		/*for (int i=0;i<5;i++){
+		for (int j=0;j<5;j++){
+		cout<< m[i][j] <<" ";
+		}
+		cout<<endl;
+		}*/
 	}
 	return 0;
 }
