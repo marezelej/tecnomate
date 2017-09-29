@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 	string instrucc;
 	cin >> casos; 
 	int idem;
+	string aux;
 	for(int i=0; i<casos; i++) 
 	{
 		cin>>mov;
@@ -27,9 +28,10 @@ int main(int argc, char *argv[])
 			    pos = pos -1;
 				v.push_back(-1);
 			}
-			else if(instrucc.size() == 9)
+			else if(instrucc.size() >= 9)
 			{
-				idem = instrucc[8] - '0';
+			    string aux = instrucc.substr(8);
+				idem = stoi (aux,NULL,10);
 				pos = pos + v[idem-1];
 			    v.push_back(v[idem-1]);
 			}
