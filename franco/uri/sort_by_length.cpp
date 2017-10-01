@@ -1,5 +1,5 @@
 //https://www.urionlinejudge.com.br/judge/en/problems/view/1244
-
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -34,6 +34,7 @@ bool noOrdenar (vector <string> & v)
 	return true;
 }
 
+//funcion obsoleta
 void OrdVecStr (vector <string> & v)
 {
 	for(int i=0; i<v.size();i++)
@@ -71,8 +72,8 @@ int main(int argc, char *argv[])
 		pasaje(linea,v);
 		if(!noOrdenar(v))
 		{
-		    OrdVecStr(v); 
-		  //si hay que ordenarlo lo ordena y si no hay que ordenarlo lo ordena :)  
+		   // OrdVecStr(v); 
+		   sort(v.begin(), v.end(), [](const std::string &s1, const std::string &s2) {return s1.size() < s2.size(); }); 
             for(std::vector<string>::reverse_iterator j = v.rbegin(); j != v.rend(); j++) //j es de tipo iterador de vector de strings. cosas de la vida, no pregunten
 		    {
 			    cout << *j; //el iterador es un puntero porque sí
