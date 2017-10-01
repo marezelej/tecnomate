@@ -35,19 +35,29 @@ bool noOrdenar (vector <string> & v)
 }
 
 //funcion obsoleta
-void OrdVecStr (vector <string> & v)
+void OrdVecStr (vector <string> &v)
 {
 	for(int i=0; i<v.size();i++)
 	{
 		for(int j=0; j<v.size()-i;j++)
 		{
-			if(v[j].length() > v[j+1].length())
+			if(int(v[j].size()) < int(v[j+1].size()))
 			{
 				string aux = v[j];
 				v[j] = v[j+1];
 				v[j+1] = aux;
 			}
 		}
+	}
+}
+
+void girar(vector <string> &v){
+	string aux;
+	for (int i=0;i<=v.size()/2-1;i++)
+	{
+		aux = v[i];
+		v[i] = v[v.size()-i];
+		v[v.size()-i] = aux;
 	}
 }
 
@@ -72,12 +82,12 @@ int main(int argc, char *argv[])
 		pasaje(linea,v);
 		if(!noOrdenar(v))
 		{
-		   // OrdVecStr(v); 
-		   sort(v.begin(), v.end(), [](const std::string &s1, const std::string &s2) {return s1.size() < s2.size(); }); 
-            for(std::vector<string>::reverse_iterator j = v.rbegin(); j != v.rend(); j++) //j es de tipo iterador de vector de strings. cosas de la vida, no pregunten
+		   OrdVecStr(v); 
+		   //sort(v.begin(), v.end(), [](const std::string &s1, const std::string &s2) {return s1.size() < s2.size(); }); 
+            for(std::vector<string>::iterator f = v.begin(); f != v.end(); f++)
 		    {
-			    cout << *j; //el iterador es un puntero porque sí
-			    if(j != v.rend() -1) cout << " ";
+		        cout << *f;
+		        if(f != v.end() -1) cout << " ";
 			    else cout << endl;
 		    }
 		    v.clear(); //borra el contenido del vector
