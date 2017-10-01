@@ -37,9 +37,9 @@ bool noOrdenar (vector <string> & v)
 //funcion obsoleta
 void OrdVecStr (vector <string> &v)
 {
-	for(int i=0; i<v.size();i++)
+	for(int i=0; i<v.size()-1;i++)
 	{
-		for(int j=0; j<v.size()-i;j++)
+		for(int j=0; j<v.size()-1-i;j++)
 		{
 			if(int(v[j].size()) < int(v[j+1].size()))
 			{
