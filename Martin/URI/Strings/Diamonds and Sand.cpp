@@ -53,8 +53,8 @@ int main(int argc, char *argv[]) {
 	int ult=0; //Cuántos elementos posee cargado el vector?
 	while(cin){ //Mientras tengamos entrada...
 		getline(cin,palabra); //Obtenemos la línea
-		for(int i=0;i< palabra.length();i++){ //Para todos los elementos del string
-			insertar(vector,palabra[i],ult); //insertamos caracter a caracter
+		for(auto c:palabra){ //Para todos los elementos del string
+			insertar(vector,c,ult); //insertamos caracter a caracter
 		}
 		ordenar(vector,ult); //Ordenamos el vector
 		if(!primero && cin) cout<<endl; //Imprimimos una línea si no es el primero ni el último
