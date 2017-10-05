@@ -8,9 +8,8 @@ using namespace std;
 
 struct nodo
 {
-	int personas;
-	int consumo;
-	int promedio;
+	short int personas;
+	short int promedio;
 	struct nodo *izq,*der;
 };
 
@@ -20,26 +19,24 @@ ABB crearNodo(int a, int b)
 {
 	ABB nuevoNodo = new(struct nodo);
 	nuevoNodo->personas= a;
-	nuevoNodo->consumo= b;
-	nuevoNodo->promedio = trunc(b/a);
+	nuevoNodo->promedio = b;
 	nuevoNodo->izq = NULL;
 	nuevoNodo->der = NULL;
 	return nuevoNodo;
 }
 
-void insertar(ABB &arbol, int a, int b)
+void insertar(ABB &arbol, short int a, short int b)
 {
-    int aux = trunc(b/a);
 	if(arbol==NULL)
 	{
 		arbol = crearNodo(a,b);
 	}
-	else if(aux == arbol->promedio)
-		arbol->personas = arbol->personas + a;
-	else if(aux > arbol->promedio)
+	else if(b > arbol->promedio)
 		insertar(arbol->der, a,b);
-	else if(aux < arbol->promedio)
+	else if(b < arbol->promedio)
 		insertar(arbol->izq,a,b);
+	else if(b == arbol->promedio)
+	   arbol->personas += a;
 }
 
 void enOrden(ABB arbol)
@@ -49,9 +46,11 @@ void enOrden(ABB arbol)
 		enOrden(arbol->izq);
 		cout<< arbol->personas <<"-"<<arbol->promedio <<endl;
 		enOrden(arbol->der);
+		free(arbol);
 	}
 }
 
+//Funcin obsoleta. El árbol muere a medida que es recorrido.
 void matar(ABB arbol)
 {
 	if(arbol != 0 )
@@ -64,30 +63,32 @@ void matar(ABB arbol)
 
 int main(int argc, char *argv[]) {
 	
-	int prop,c, resi, cons;
+	short int prop,c, resi, cons;
 	c=1;
-	double cm, cresi, ccons = 0;
-	ABB arbol = {NULL};
+	float cm, cresi, ccons = 0;
+	ABB arbol = 0;
 	cin>>prop;
 	while(prop != 0)
 	{   
-	    cresi = 0.0;
-	    ccons = 0.;
-	    for(int i=0;i<prop;i++)
-	    {
-	        cin>>resi>>cons;
-		    cresi = cresi + resi;
-		    ccons = ccons + cons;
-		    insertar(arbol, resi, cons);  
-	    }
-	    cout<<endl<<" "<<endl<<"Cidade# "<<c<<":"<<endl;
+		cresi = 0.0;
+		ccons = 0.;
+		for(int i=0;i<prop;i++)
+		{
+			cin>>resi>>cons;
+			cresi += resi;
+			ccons += cons;
+			cons=trunc(cons/resi);
+			insertar(arbol, resi, cons);  
+		}
+		cout<<"Cidade# "<<c<<":"<<endl;
 		enOrden(arbol);
-		cm = cm + (ccons/cresi);
-		cout<<"Consumo medio: " << fixed << setprecision(2)<<(trunc(cm*100))/100<<" m3.";
+		cm += (ccons/cresi);
+		cout<<"Consumo medio: " << fixed << setprecision(2)<<(trunc(cm*100))/100<<" m3."<<endl;
 		cm = 0;
 		cin>>prop;
-		matar(arbol);
+		if(prop!=0) cout<<endl;
+		//aumentar numero de ciudades:
 		c++;
-	 }
+	}
 	return 0;
 }
