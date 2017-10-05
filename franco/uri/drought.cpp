@@ -1,7 +1,6 @@
 // https://www.urionlinejudge.com.br/judge/en/problems/view/1023
 
 #include <iostream>
-#include <string>
 #include <cmath>
 #include <iomanip>
 using namespace std;
