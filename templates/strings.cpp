@@ -15,3 +15,4 @@ vector <string> pasaje(string & s, vector <string> & v)
 	s.clear();
 	return v;
 }
+
