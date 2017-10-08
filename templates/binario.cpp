@@ -1,4 +1,4 @@
-int main(){
+int inttobinary (int dividendo){
     int resto, dividendo;
     cin >> dividendo;
     string resultado;
@@ -18,3 +18,4 @@ int main(){
         }
     }   
    return    mayor = max(mayor,count);
+}
