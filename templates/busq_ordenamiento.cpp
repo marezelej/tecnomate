@@ -40,3 +40,18 @@ void quicksort(vector <int> & v, const int& left, const int& right){
 	quicksort(v, left, part - 1);
 	quicksort(v, part + 1, right);
 }
+
+int binary_search(vector <int> &v, int low, int high, int key)
+{
+	if(low<=high)
+	{
+		int mid = low + (high - low) / 2;
+		
+		if (v[mid] == key)	return mid;
+		
+		if (v[mid] > key)	return binary_search(v,low, mid-1, key);
+						    return binary_search(v, mid+1, high, key);
+	}
+	
+    return -1;
+}
