@@ -50,7 +50,7 @@ int binary_search(vector <int> &v, int low, int high, int key)
 		if (v[mid] == key)	return mid;
 		
 		if (v[mid] > key)	return binary_search(v,low, mid-1, key);
-						    return binary_search(v, mid+1, high, key);
+		else			return binary_search(v, mid+1, high, key);
 	}
 	
     return -1;
