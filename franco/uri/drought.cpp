@@ -45,7 +45,7 @@ void enOrden(ABB arbol)
 		enOrden(arbol->izq);
 		cout<< arbol->personas <<"-"<<arbol->promedio <<endl;
 		enOrden(arbol->der);
-		free(arbol);
+		delete(arbol);
 	}
 }
 
